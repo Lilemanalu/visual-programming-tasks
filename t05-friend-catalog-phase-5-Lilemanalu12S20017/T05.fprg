@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="MANALU"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2020-12-09 06:49:12 PM"/>
+        <attribute name="created" value="TUFOQUxVO0xBUFRPUC1ISkY4Skc0UzsyMDIwLTEyLTA4OzA0OjUyOjU0IFBNOzI3ODY="/>
+        <attribute name="edited" value="TUFOQUxVO0xBUFRPUC1ISkY4Skc0UzsyMDIwLTEyLTA4OzA1OjIwOjA4IFBNOzk7TUFOQUxVO0xBUFRPUC1ISkY4Skc0UzsyMDIwLTExLTExOzA0OjE1OjI1IFBNO1QwNC5mcHJnOzY0NTI="/>
+        <attribute name="edited" value="TUFOQUxVO0xBUFRPUC1ISkY4Skc0UzsyMDIwLTEyLTA5OzA2OjQ5OjEyIFBNOzY7MjkwMg=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="pilihan, func2" type="String" array="False" size=""/>
+            <declare name="pengulangan" type="Boolean" array="False" size=""/>
+            <assign variable="pengulangan" expression="true"/>
+            <do expression="pengulangan">
+                <input variable="pilihan"/>
+                <if expression="pilihan==&quot;---&quot;">
+                    <then>
+                        <assign variable="pengulangan" expression="false"/>
+                    </then>
+                    <else>
+                        <if expression="pilihan==&quot;1&quot;">
+                            <then>
+                                <call expression="func1"/>
+                            </then>
+                            <else>
+                                <if expression="pilihan ==&quot;2&quot;">
+                                    <then>
+                                        <call expression="func2"/>
+                                    </then>
+                                    <else>
+                                        <if expression="pilihan ==&quot;3&quot;">
+                                            <then>
+                                                <call expression="func3"/>
+                                            </then>
+                                            <else/>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </do>
+        </body>
+    </function>
+    <function name="func1" type="None" variable="">
+        <parameters/>
+        <body/>
+    </function>
+    <function name="func2" type="None" variable="data">
+        <parameters/>
+        <body>
+            <declare name="NIM, namaLengkap, programStudi, usernameGithub, namaPanggilan, angkatan, jenisKelamin, sapaan" type="String" array="False" size=""/>
+            <input variable="NIM"/>
+            <input variable="namaLengkap"/>
+            <input variable="programStudi"/>
+            <input variable="usernameGithub"/>
+            <declare name="size, index" type="Integer" array="False" size=""/>
+            <assign variable="size" expression="3"/>
+            <declare name="nomorTelepon" type="String" array="True" size="size"/>
+            <declare name="seluruhNomor" type="String" array="False" size=""/>
+            <assign variable="seluruhNomor" expression="&quot;&quot;"/>
+            <for variable="index" start="0" end="size-1" direction="inc" step="1">
+                <input variable="nomorTelepon[index]"/>
+                <if expression="nomorTelepon[index] == &quot;---&quot;">
+                    <then>
+                        <assign variable="nomorTelepon[index]" expression="&quot;&quot;"/>
+                        <assign variable="size" expression="2"/>
+                    </then>
+                    <else>
+                        <if expression="size&gt;1">
+                            <then>
+                                <assign variable="seluruhNomor" expression="seluruhNomor &amp;&quot;,&quot;"/>
+                            </then>
+                            <else/>
+                        </if>
+                    </else>
+                </if>
+                <assign variable="seluruhNomor" expression="seluruhNomor &amp; nomorTelepon[index]"/>
+            </for>
+            <input variable="namaPanggilan"/>
+            <input variable="jenisKelamin"/>
+            <input variable="angkatan"/>
+            <if expression="jenisKelamin ==&quot;P&quot;">
+                <then>
+                    <if expression="ToInteger(angkatan) &lt;2020">
+                        <then>
+                            <assign variable="sapaan" expression="&quot;Kak&quot;&amp;&quot; &quot; &amp; namaPanggilan"/>
+                        </then>
+                        <else>
+                            <assign variable="sapaan" expression="namaPanggilan"/>
+                        </else>
+                    </if>
+                </then>
+                <else>
+                    <if expression="ToInteger(angkatan) &lt;2020">
+                        <then>
+                            <assign variable="sapaan" expression="&quot;Bang&quot;&amp;&quot; &quot; &amp; namaPanggilan"/>
+                        </then>
+                        <else>
+                            <assign variable="sapaan" expression="namaPanggilan"/>
+                        </else>
+                    </if>
+                </else>
+            </if>
+            <declare name="data1, data2" type="String" array="False" size=""/>
+            <assign variable="data1" expression="NIM &amp; &quot;#&quot; &amp; namaLengkap &amp;&quot;#&quot; &amp;programStudi &amp; &quot;#&quot; &amp; usernameGithub &amp;&quot;#&quot;&amp; seluruhNomor"/>
+            <assign variable="data2" expression="sapaan"/>
+        </body>
+    </function>
+    <function name="func3" type="None" variable="">
+        <parameters/>
+        <body/>
+    </function>
+</flowgorithm>

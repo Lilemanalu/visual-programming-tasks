@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="MANALU"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2020-12-28 12:39:02 PM"/>
+        <attribute name="created" value="TUFOQUxVO0xBUFRPUC1ISkY4Skc0UzsyMDIwLTEyLTI4OzEwOjU0OjEzIEFNOzI3Njc="/>
+        <attribute name="edited" value="TUFOQUxVO0xBUFRPUC1ISkY4Skc0UzsyMDIwLTEyLTI4OzEwOjU3OjQ3IEFNOzI7TUFOQUxVO0xBUFRPUC1ISkY4Skc0UzsyMDIwLTEyLTI4OzEwOjE2OjA3IEFNO0J1YmxlIHNvcnQgdGVya2VjaWwtIHRlcmJlc2FyLmZwcmc7OTA0Mw=="/>
+  </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="option" type="String" array="False" size=""/>
+            <declare name="stop" type="Boolean" array="False" size=""/>
+            <assign variable="stop" expression="False"/>
+            <declare name="index, n" type="Integer" array="False" size=""/>
+            <assign variable="index" expression="5"/>
+            <declare name="kata, jenisKata, arti" type="String" array="True" size="index"/>
+            <declare name="dictionary" type="String" array="True" size="index"/>
+            <assign variable="n" expression="10"/>
+            <for variable="index" start="0" end="n" direction="inc" step="1">
+                <assign variable="kata[index]" expression="&quot;&quot;"/>
+                <input variable="option"/>
+                <if expression="option == &quot;---&quot;">
+                    <then>
+                        <assign variable="stop" expression="True"/>
+                    </then>
+                    <else>
+                        <if expression="option == &quot;register&quot;">
+                            <then>
+                                <call expression="register(index, kata, jenisKata, arti, dictionary)"/>
+                            </then>
+                            <else>
+                                <if expression="option == &quot;find&quot;">
+                                    <then>
+                                        <call expression="find(kata, dictionary, index)"/>
+                                    </then>
+                                    <else/>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </for>
+        </body>
+    </function>
+    <function name="find" type="None" variable="">
+        <parameters>
+            <parameter name="kata" type="String" array="True"/>
+            <parameter name="dictionary" type="String" array="True"/>
+            <parameter name="index" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="cariKata" type="String" array="False" size=""/>
+            <input variable="cariKata"/>
+            <for variable="index" start="0" end="4" direction="inc" step="1">
+                <if expression="cariKata == kata[index]">
+                    <then>
+                        <output expression="dictionary[index]" newline="True"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+        </body>
+    </function>
+    <function name="register" type="None" variable="">
+        <parameters>
+            <parameter name="index" type="Integer" array="False"/>
+            <parameter name="kata" type="String" array="True"/>
+            <parameter name="jenisKata" type="String" array="True"/>
+            <parameter name="arti" type="String" array="True"/>
+            <parameter name="dictionary" type="String" array="True"/>
+        </parameters>
+        <body>
+            <if expression="index&lt;=5">
+                <then>
+                    <input variable="kata[index]"/>
+                    <input variable="jenisKata[index]"/>
+                    <input variable="arti[index]"/>
+                    <assign variable="dictionary[index]" expression="kata[index]&amp;&quot;#&quot;&amp;jenisKata[index]&amp;&quot;#&quot;&amp;arti[index]"/>
+                </then>
+                <else/>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

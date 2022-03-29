@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="MANALU"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2020-10-21 09:54:37 PM"/>
+        <attribute name="created" value="TUFOQUxVO0xBUFRPUC1ISkY4Skc0UzsyMDIwLTEwLTIxOzA5OjMyOjE4IFBNOzI3ODI="/>
+        <attribute name="edited" value="TUFOQUxVO0xBUFRPUC1ISkY4Skc0UzsyMDIwLTEwLTIxOzA5OjM3OjM2IFBNOzE7QWJkdWxsYWhVYmFpZDtBVVhURVJOOzIwMjAtMTAtMjE7MDcuNTAuMTQgUE07UTAxLmZwcmc7Njc0Ng=="/>
+        <attribute name="edited" value="TUFOQUxVO0xBUFRPUC1ISkY4Skc0UzsyMDIwLTEwLTIxOzA5OjU0OjM3IFBNOzM7Mjg5Nw=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="Kredit, NilaiHuruf" type="String" array="False" size=""/>
+            <declare name="Performa" type="Real" array="False" size=""/>
+            <declare name="Stop" type="Boolean" array="False" size=""/>
+            <assign variable="Stop" expression="False"/>
+            <assign variable="Performa" expression="0.0"/>
+            <while expression="!(Stop)">
+                <input variable="Kredit"/>
+                <input variable="NilaiHuruf"/>
+                <if expression="NilaiHuruf==&quot;A&quot;">
+                    <then>
+                        <assign variable="Performa" expression="ToInteger(kredit) * 4.0"/>
+                    </then>
+                    <else>
+                        <if expression="NilaiHuruf==&quot;AB&quot;">
+                            <then>
+                                <assign variable="Performa" expression="ToInteger(kredit) * 3.5"/>
+                            </then>
+                            <else>
+                                <if expression="NilaiHuruf==&quot;B&quot;">
+                                    <then>
+                                        <assign variable="Performa" expression="ToInteger(kredit) * 3.0"/>
+                                    </then>
+                                    <else>
+                                        <if expression="NilaiHuruf==&quot;BC&quot;">
+                                            <then>
+                                                <assign variable="Performa" expression="ToInteger(kredit) * 2.5"/>
+                                            </then>
+                                            <else>
+                                                <if expression="NilaiHuruf==&quot;C&quot;">
+                                                    <then>
+                                                        <assign variable="Performa" expression="ToInteger(kredit) * 2.0"/>
+                                                    </then>
+                                                    <else>
+                                                        <if expression="NilaiHuruf==&quot;D&quot;">
+                                                            <then>
+                                                                <assign variable="Performa" expression="ToInteger(kredit) * 1.0"/>
+                                                            </then>
+                                                            <else>
+                                                                <if expression="NilaiHuruf==&quot;E&quot;">
+                                                                    <then>
+                                                                        <assign variable="Performa" expression="ToInteger(kredit) * 0.0"/>
+                                                                    </then>
+                                                                    <else>
+                                                                        <assign variable="Stop" expression="True"/>
+                                                                    </else>
+                                                                </if>
+                                                            </else>
+                                                        </if>
+                                                    </else>
+                                                </if>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+                <if expression="!(Stop)">
+                    <then>
+                        <output expression="Performa" newline="True"/>
+                    </then>
+                    <else>
+                        <output expression="&quot;&quot;" newline="True"/>
+                    </else>
+                </if>
+            </while>
+        </body>
+    </function>
+</flowgorithm>

@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="MANALU"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2020-12-29 12:56:33 PM"/>
+        <attribute name="created" value="TUFOQUxVO0xBUFRPUC1ISkY4Skc0UzsyMDIwLTEyLTI5OzExOjA3OjE1IEFNOzI3Njk="/>
+        <attribute name="edited" value="TUFOQUxVO0xBUFRPUC1ISkY4Skc0UzsyMDIwLTEyLTI5OzEyOjU2OjMzIFBNOzQ7MjkwMA=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="index, n, j" type="Integer" array="False" size=""/>
+            <assign variable="n" expression="7"/>
+            <declare name="mataKuliah, kredit, nilaiHuruf, data" type="String" array="True" size="n"/>
+            <declare name="A, AB, B, BC, C, D, E" type="Real" array="False" size=""/>
+            <assign variable="A" expression="4.0"/>
+            <assign variable="AB" expression="3.5"/>
+            <assign variable="B" expression="3.0"/>
+            <assign variable="BC" expression="2.5"/>
+            <assign variable="C" expression="2.0"/>
+            <assign variable="D" expression="1.0"/>
+            <assign variable="E" expression="0.0"/>
+            <declare name="temp" type="String" array="False" size=""/>
+            <for variable="index" start="0" end="n-1" direction="inc" step="1">
+                <input variable="mataKuliah[index]"/>
+                <input variable="kredit[index]"/>
+                <input variable="nilaiHuruf[index]"/>
+                <if expression="mataKuliah[index] == &quot;---&quot;">
+                    <then>
+                        <assign variable="n" expression="index"/>
+                    </then>
+                    <else/>
+                </if>
+                <assign variable="data[index]" expression="mataKuliah[index]&amp;&quot;#&quot;&amp;kredit[index]&amp;&quot;#&quot;&amp;nilaiHuruf[index]"/>
+            </for>
+            <for variable="index" start="0" end="n-1" direction="inc" step="1">
+                <for variable="j" start="n-1" end="index+1" direction="dec" step="1">
+                    <if expression="nilaiHuruf[j]&lt;nilaiHuruf[j-1]">
+                        <then>
+                            <assign variable="temp" expression="nilaiHuruf[j]"/>
+                            <assign variable="nilaiHuruf[j]" expression="nilaiHuruf[j-1]"/>
+                            <assign variable="nilaiHuruf[j-1]" expression="temp"/>
+                            <assign variable="temp" expression="data[j]"/>
+                            <assign variable="data[j]" expression="data[j-1]"/>
+                            <assign variable="data[j-1]" expression="temp"/>
+                        </then>
+                        <else/>
+                    </if>
+                </for>
+            </for>
+            <for variable="index" start="0" end="n-1" direction="inc" step="1">
+                <output expression="data[index]" newline="True"/>
+            </for>
+        </body>
+    </function>
+</flowgorithm>

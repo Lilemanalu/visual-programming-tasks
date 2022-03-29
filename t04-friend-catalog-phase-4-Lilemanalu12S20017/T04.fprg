@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="MANALU"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2020-11-13 08:20:05 PM"/>
+        <attribute name="created" value="TUFOQUxVO0xBUFRPUC1ISkY4Skc0UzsyMDIwLTExLTExOzA0OjE1OjI1IFBNOzI3NzY="/>
+        <attribute name="edited" value="TUFOQUxVO0xBUFRPUC1ISkY4Skc0UzsyMDIwLTExLTEzOzA4OjIwOjA1IFBNOzE1OzI5Mzc="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="mahasiswa, n" type="Integer" array="False" size=""/>
+            <assign variable="mahasiswa" expression="5"/>
+            <assign variable="n" expression="mahasiswa"/>
+            <declare name="NIM, nama, nomorTelepon" type="String" array="True" size="mahasiswa"/>
+            <declare name="selesai" type="Integer" array="False" size=""/>
+            <assign variable="selesai" expression="mahasiswa-1"/>
+            <for variable="mahasiswa" start="0" end="selesai" direction="inc" step="1">
+                <declare name="programStudi, usernameGithub, namaPanggilan, jenisKelamin, sapaan, seluruhNomor" type="String" array="False" size=""/>
+                <assign variable="seluruhNomor" expression="&quot;&quot;"/>
+                <input variable="NIM[mahasiswa]"/>
+                <if expression="NIM[mahasiswa] == &quot;---&quot;">
+                    <then>
+                        <assign variable="selesai" expression="mahasiswa"/>
+                    </then>
+                    <else>
+                        <input variable="nama[mahasiswa]"/>
+                        <input variable="programStudi"/>
+                        <input variable="usernameGithub"/>
+                        <declare name="m" type="Integer" array="False" size=""/>
+                        <assign variable="m" expression="3"/>
+                        <for variable="n" start="1" end="m" direction="inc" step="1">
+                            <input variable="nomorTelepon[mahasiswa]"/>
+                            <if expression="nomorTelepon[mahasiswa] == &quot;---&quot;">
+                                <then>
+                                    <assign variable="nomorTelepon[mahasiswa]" expression="&quot;&quot;"/>
+                                    <assign variable="m" expression="2"/>
+                                </then>
+                                <else>
+                                    <if expression="n&gt;1">
+                                        <then>
+                                            <assign variable="seluruhNomor" expression="seluruhNomor &amp;&quot;,&quot;"/>
+                                        </then>
+                                        <else/>
+                                    </if>
+                                </else>
+                            </if>
+                            <assign variable="seluruhNomor" expression="seluruhNomor &amp; nomorTelepon[mahasiswa]"/>
+                        </for>
+                        <input variable="namaPanggilan"/>
+                        <input variable="jenisKelamin"/>
+                        <declare name="angkatan" type="String" array="False" size=""/>
+                        <input variable="angkatan"/>
+                        <if expression="jenisKelamin ==&quot;P&quot;">
+                            <then>
+                                <if expression="ToInteger(angkatan) &lt;2020">
+                                    <then>
+                                        <assign variable="sapaan" expression="&quot;Kak&quot;&amp;&quot; &quot; &amp; namaPanggilan"/>
+                                    </then>
+                                    <else>
+                                        <assign variable="sapaan" expression="namaPanggilan"/>
+                                    </else>
+                                </if>
+                            </then>
+                            <else>
+                                <if expression="ToInteger(angkatan) &lt;2020">
+                                    <then>
+                                        <assign variable="sapaan" expression="&quot;Bang&quot;&amp;&quot; &quot; &amp; namaPanggilan"/>
+                                    </then>
+                                    <else>
+                                        <assign variable="sapaan" expression="namaPanggilan"/>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                        <output expression="NIM[mahasiswa] &amp; &quot;#&quot; &amp; nama[mahasiswa] &amp;&quot;#&quot; &amp;programStudi &amp; &quot;#&quot; &amp; usernameGithub &amp;&quot;#&quot;&amp; seluruhNomor" newline="True"/>
+                        <output expression="sapaan" newline="True"/>
+                    </else>
+                </if>
+            </for>
+        </body>
+    </function>
+</flowgorithm>

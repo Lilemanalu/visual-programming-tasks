@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="MANALU"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2020-12-21 04:53:17 PM"/>
+        <attribute name="created" value="TUFOQUxVO0xBUFRPUC1ISkY4Skc0UzsyMDIwLTEyLTIxOzEyOjE4OjI2IFBNOzI3ODE="/>
+        <attribute name="edited" value="TUFOQUxVO0xBUFRPUC1ISkY4Skc0UzsyMDIwLTEyLTIxOzA0OjUzOjE3IFBNOzY7Mjg5NA=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="size, i" type="Integer" array="False" size=""/>
+            <assign variable="size" expression="7"/>
+            <declare name="mataKuliah, Kredit, nilaiHuruf" type="String" array="True" size="size"/>
+            <declare name="Max, performa, delta" type="Real" array="True" size="size"/>
+            <for variable="i" start="0" end="size-1" direction="inc" step="1">
+                <input variable="mataKuliah[i]"/>
+                <input variable="Kredit[i]"/>
+                <if expression="Kredit[i] == &quot;4&quot;">
+                    <then>
+                        <assign variable="Max[i]" expression="4*4.0"/>
+                    </then>
+                    <else>
+                        <if expression="Kredit[i] == &quot;3&quot;">
+                            <then>
+                                <assign variable="Max[i]" expression="3*4.0"/>
+                            </then>
+                            <else>
+                                <if expression="Kredit[i] == &quot;2&quot;">
+                                    <then>
+                                        <assign variable="Max[i]" expression="2*4.0"/>
+                                    </then>
+                                    <else>
+                                        <if expression="Kredit[i] == &quot;1&quot;">
+                                            <then>
+                                                <assign variable="Max[i]" expression="1*4.0"/>
+                                            </then>
+                                            <else/>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+                <input variable="nilaiHuruf[i]"/>
+                <if expression="nilaiHuruf[i] == &quot;A&quot;">
+                    <then>
+                        <assign variable="performa[i]" expression="ToInteger(Kredit[i])*4.0"/>
+                    </then>
+                    <else>
+                        <if expression="nilaiHuruf[i] == &quot;AB&quot;">
+                            <then>
+                                <assign variable="performa[i]" expression="ToInteger(Kredit[i])*3.5"/>
+                            </then>
+                            <else>
+                                <if expression="nilaiHuruf[i] == &quot;B&quot;">
+                                    <then>
+                                        <assign variable="performa[i]" expression="ToInteger(Kredit[i])*3.0"/>
+                                    </then>
+                                    <else>
+                                        <if expression="nilaiHuruf[i] == &quot;BC&quot;">
+                                            <then>
+                                                <assign variable="performa[i]" expression="ToInteger(Kredit[i])*2.5"/>
+                                            </then>
+                                            <else>
+                                                <if expression="nilaiHuruf[i] == &quot;C&quot;">
+                                                    <then>
+                                                        <assign variable="performa[i]" expression="ToInteger(Kredit[i])*2.0"/>
+                                                    </then>
+                                                    <else>
+                                                        <if expression="nilaiHuruf[i] == &quot;D&quot;">
+                                                            <then>
+                                                                <assign variable="performa[i]" expression="ToInteger(Kredit[i])*1.0"/>
+                                                            </then>
+                                                            <else>
+                                                                <if expression="nilaiHuruf[i] == &quot;E&quot;">
+                                                                    <then>
+                                                                        <assign variable="performa[i]" expression="ToInteger(Kredit[i])*0.0"/>
+                                                                    </then>
+                                                                    <else/>
+                                                                </if>
+                                                            </else>
+                                                        </if>
+                                                    </else>
+                                                </if>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+                <if expression="mataKuliah[i] == &quot;---&quot;">
+                    <then>
+                        <assign variable="size" expression="i+1"/>
+                    </then>
+                    <else>
+                        <assign variable="delta[i]" expression="Max[i] - performa[i]"/>
+                    </else>
+                </if>
+            </for>
+            <for variable="i" start="0" end="size-1" direction="inc" step="1">
+                <if expression="i==0">
+                    <then>
+                        <if expression="mataKuliah[i]== &quot;---&quot;">
+                            <then>
+                                <output expression="&quot;---#---#---#---&quot;" newline="True"/>
+                            </then>
+                            <else/>
+                        </if>
+                    </then>
+                    <else>
+                        <if expression="i==1">
+                            <then>
+                                <if expression="delta[i]==delta[i-1]">
+                                    <then>
+                                        <output expression="mataKuliah[i-1] &amp; &quot;#&quot; &amp; Kredit[i-1] &amp; &quot;#&quot; &amp; nilaiHuruf[i-1] &amp; &quot;#&quot; &amp; ToFixed(delta[i-1],1)" newline="True"/>
+                                    </then>
+                                    <else>
+                                        <if expression="delta[i]&gt;delta[i-1]">
+                                            <then>
+                                                <output expression="mataKuliah[i] &amp; &quot;#&quot; &amp; Kredit[i] &amp; &quot;#&quot; &amp; nilaiHuruf[i] &amp; &quot;#&quot; &amp; ToFixed(delta[i],1)" newline="True"/>
+                                            </then>
+                                            <else/>
+                                        </if>
+                                    </else>
+                                </if>
+                            </then>
+                            <else>
+                                <if expression="i==2">
+                                    <then>
+                                        <if expression="delta[i]==delta[i-1]">
+                                            <then>
+                                                <output expression="mataKuliah[i-1] &amp; &quot;#&quot; &amp; Kredit[i-1] &amp; &quot;#&quot; &amp; nilaiHuruf[i-1] &amp; &quot;#&quot; &amp; ToFixed(delta[i-1],1)" newline="True"/>
+                                            </then>
+                                            <else>
+                                                <if expression="delta[i]&gt;delta[i-1] and delta[i]&gt;delta[i-2]">
+                                                    <then>
+                                                        <output expression="mataKuliah[i] &amp; &quot;#&quot; &amp; Kredit[i] &amp; &quot;#&quot; &amp; nilaiHuruf[i] &amp; &quot;#&quot; &amp; ToFixed(delta[i],1)" newline="True"/>
+                                                    </then>
+                                                    <else/>
+                                                </if>
+                                            </else>
+                                        </if>
+                                    </then>
+                                    <else/>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </for>
+        </body>
+    </function>
+</flowgorithm>
