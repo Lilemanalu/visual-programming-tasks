@@ -1,2 +1,2 @@
 # Visual-programming-tasks
-Weekly programming tasks use Flowgorithm software as a tool to solve problems
+Weekly programming tasks using Flowgorithm software as a tool to solve problems
